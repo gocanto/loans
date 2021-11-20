@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * @property int $id
  * @property string $uuid
+ * @property float $lent_amount
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property Carbon $deleted_at
