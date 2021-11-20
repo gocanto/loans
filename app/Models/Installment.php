@@ -5,25 +5,25 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Foundation\Auth\User as UserInterface;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
+ * @property Loan $loan
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property Carbon $deleted_at
- * @property Collection|Loan[] $loans
  */
-class User extends UserInterface
+class Installment extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'loan_id',
+        'due_date',
+        'due_amount',
+        'paid_at',
     ];
 
     protected $casts = [
@@ -32,8 +32,8 @@ class User extends UserInterface
         'deleted_at',
     ];
 
-    public function loans(): HasMany
+    public function loan(): BelongsTo
     {
-        return $this->hasMany(Loan::class);
+        return $this->belongsTo(Loan::class);
     }
 }
