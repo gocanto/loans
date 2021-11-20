@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
+ * @property int $id
+ * @property string $uuid
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property Carbon $deleted_at
@@ -27,7 +29,6 @@ class Loan extends Model
         'lent_amount',
         'payment_term',
         'payment_frequency',
-
     ];
 
     protected $casts = [

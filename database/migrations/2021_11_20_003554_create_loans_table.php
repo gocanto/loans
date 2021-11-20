@@ -17,7 +17,7 @@ class CreateLoansTable extends Migration
             $table->unsignedBigInteger('user_id');
 
             $table->string('description');
-            $table->unsignedFloat('lent_amount');
+            $table->decimal('lent_amount', 19, 10);
 
             $table->string('payment_term')
                 ->default(Loan::DEFAULT_TERM)

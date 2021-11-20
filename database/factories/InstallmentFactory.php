@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
+use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class UserFactory extends Factory
+class InstallmentFactory extends Factory
 {
     public function definition(): array
     {
         return [
             'uuid' => Str::uuid()->toString(),
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'due_date' => CarbonImmutable::now()->addMonths(3),
+            'due_amount' => $this->faker->randomFloat(5, 2),
+            'paid_at' => null,
         ];
     }
 }

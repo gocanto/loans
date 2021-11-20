@@ -15,7 +15,7 @@ class CreateTheInstallmentsTable extends Migration
             $table->uuid('uuid');
             $table->unsignedBigInteger('loan_id');
             $table->date('due_date');
-            $table->float('due_amount');
+            $table->decimal('due_amount', 19, 10);
             $table->timestamp('paid_at')->nullable();
 
             $table->timestamps();

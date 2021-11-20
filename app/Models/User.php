@@ -11,10 +11,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as UserInterface;
 
 /**
+ * @property string $uuid
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property Carbon $deleted_at
  * @property Collection|Loan[] $loans
+ * @property int $id
  */
 class User extends UserInterface
 {
