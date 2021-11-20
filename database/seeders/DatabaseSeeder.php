@@ -19,7 +19,11 @@ class DatabaseSeeder extends Seeder
     {
         $this->now = CarbonImmutable::parse('2022-01-01')->startOfDay();
 
-        $this->user = User::factory()->create(['name' => 'Gus', 'email' => 'gus@loans.local']);
+        $this->user = User::factory()->create([
+            'name' => 'Gus',
+            'email' => 'gus@loans.local',
+            'uuid' => 'af13b8eb-a258-4ddf-b51d-9b55a52834d7',
+        ]);
     }
 
     public function run(): void

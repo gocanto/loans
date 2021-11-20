@@ -12,6 +12,7 @@ use Illuminate\Foundation\Auth\User as UserInterface;
 
 /**
  * @property string $uuid
+ * @property string $name
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property Carbon $deleted_at

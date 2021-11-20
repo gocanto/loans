@@ -1,3 +1,13 @@
+# Todo
+
+- [ ] Check that the Loans' endpoint are working as expected.
+- [ ] Add a basic token protection for the loans endpoints.
+- [ ] Track the installments once loans are created.
+- [ ] Complete the users endpoints.
+- [ ] Add some tests.
+- [ ] Complete read me + instructions.
+- [ ] Check doc and find missing points if any.
+
 # Endpoints
 
 ```bash
