@@ -43,18 +43,4 @@ class InstallmentTest extends TestCase
 
         self::assertTrue($installment->isPaid());
     }
-
-//    private function getLoan(): Collection | Model | Loan
-//    {
-//        /**
-//         * @var User $user
-//         * @var Loan[]|Collection $loans
-//         */
-//
-//        $user = User::factory()->create();
-//
-//        return Loan::factory()->create([
-//            'user_id' => $user->id,
-//        ]);
-//    }
 }

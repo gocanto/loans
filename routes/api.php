@@ -12,7 +12,7 @@ Route::group([
     'prefix' => 'loans',
 ], static function (): void {
     Route::get('/', [Loans\IndexController::class, 'handle'])->name('loans.index');
-    Route::get('users', [Loans\UsersController::class, 'handle'])->name('loans.users');
+    Route::get('users', [Loans\UsersController::class, 'handle'])->name('loans.users'); //stubs
     Route::get('users/{uuid}', [Loans\UserLoansController::class, 'handle'])->name('loans.user.loan');
     Route::post('users/{uuid}', [Loans\StoreUserLoansController::class, 'handle'])->name('loans.store.user.loan');
 });
