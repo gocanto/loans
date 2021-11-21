@@ -19,7 +19,7 @@
 | POST     | api/loans/users/{uuid}                                                    | App\Http\Controllers\Loans\StoreUserLoansController@handle |
 | GET|HEAD | api/users/{userUuid}/loans                                                | App\Http\Controllers\Users\LoansController@handle          |
 | GET|HEAD | api/users/{userUuid}/loans/{loanUuid}                                     | App\Http\Controllers\Users\ShowLoanController@handle       |
-| POST     | api/users/{userUuid}/loans/{loanUuid}/installments/{installmentUuid}/paid | App\Http\Controllers\Users\PayInstallmentController@handle |
+| POST     | api/users/{userUuid}/loans/{loanUuid}/installments/{installmentUuid}/pay | App\Http\Controllers\Users\PayInstallmentController@handle |
 | GET|HEAD | sanctum/csrf-cookie                                                       | Laravel\Sanctum\Http\Controllers\CsrfCookieController@show |
 +----------+---------------------------------------------------------------------------+------------------------------------------------------------+
 ```

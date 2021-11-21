@@ -6,6 +6,7 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -58,6 +59,12 @@ class Handler extends ExceptionHandler
                 'message' => 'Whoops! it seems like something went wrong.',
                 'errors' => $e->errors(),
             ], $e->status);
+        }
+
+        if ($e instanceof NotFoundHttpException) {
+            return new JsonResponse([
+                'message' => 'The given resource does not exist.',
+            ], JsonResponse::HTTP_NOT_FOUND);
         }
 
         return parent::render($request, $e);

@@ -22,7 +22,7 @@ Route::group([
 ], static function (): void {
     Route::get('{userUuid}/loans', [Users\LoansController::class, 'handle'])->name('user.loans');
     Route::get('{userUuid}/loans/{loanUuid}', [Users\ShowLoanController::class, 'handle'])->name('user.loan');
-    Route::post('{userUuid}/loans/{loanUuid}/installments/{installmentUuid}/paid', [Users\PayInstallmentController::class, 'handle'])->name('user.pay.installment');
+    Route::post('{userUuid}/loans/{loanUuid}/installments/{installmentUuid}/pay', [Users\PayInstallmentController::class, 'handle'])->name('user.pay.installment');
 });
 
 
