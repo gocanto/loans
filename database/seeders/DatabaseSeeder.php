@@ -38,6 +38,10 @@ class DatabaseSeeder extends Seeder
         $this->createLoan('fdb7c9cf-c20c-478f-8def-596229afec0c', ['description' => 'Loan 001', 'lent_amount' => 100]);
         $this->createLoan('d77c1bbe-fec1-419f-a574-1c149c4c59cc', ['description' => 'Loan 002', 'lent_amount' => 200]);
         $this->createLoan('7aca94e6-ed0e-4ed5-adbc-005812dc2734', ['description' => 'Loan 003', 'lent_amount' => 300]);
+
+        $this->createLoan2('52832998-1b53-470f-99ee-9c99880b9494', ['description' => 'Loan 001', 'lent_amount' => 100]);
+        $this->createLoan2('5c34ef1c-8bed-4a2d-98fe-7ab4d19639e7', ['description' => 'Loan 002', 'lent_amount' => 200]);
+        $this->createLoan2('681d727c-14b8-4aa6-8938-ac152ca634b2', ['description' => 'Loan 003', 'lent_amount' => 300]);
     }
 
     private function createLoan(string $uuid, array $attrs) : void

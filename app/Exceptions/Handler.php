@@ -60,6 +60,11 @@ class Handler extends ExceptionHandler
             ], $e->status);
         }
 
-        return parent::render($request, $e);
+        return new JsonResponse([
+            'message' => 'Whoops! it seems like something went wrong.',
+            'errors' => [
+                'resource' => 'The given resource was not found.'
+            ],
+        ], JsonResponse::HTTP_NOT_FOUND);
     }
 }
