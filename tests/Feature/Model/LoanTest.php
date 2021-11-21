@@ -50,14 +50,4 @@ class LoanTest extends TestCase
         self::assertCount(1, $loan->installments);
         self::assertInstanceOf(Installment::class, $loan->installments->first());
     }
-
-    /**
-     * @test
-     */
-    public function testingThisCode(): void
-    {
-        //term: fixed
-        //payment frequency: weekly
-        //due date.
-    }
 }
