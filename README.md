@@ -4,7 +4,7 @@
 - [x] Add a basic token protection for the loans endpoints.
 - [x] Track the installments once loans are created.
 - [x] Complete the users endpoints.
-- [ ] Add Loans tests.
+- [x] Add Loans tests.
 - [ ] Complete read me + instructions.
 
 # Endpoints
