@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "a40e43d7-7ad2-4e02-8b55-959993f400d0",
+		"name": "loans-playground",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Loans",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "0e0b8ee1d66ad1afb6399af3ba58028753ad530144348618abc9af50a446a91d",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://loans.local/api/loans",
+							"protocol": "http",
+							"host": [
+								"loans",
+								"local"
+							],
+							"path": [
+								"api",
+								"loans"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all-users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "0e0b8ee1d66ad1afb6399af3ba58028753ad530144348618abc9af50a446a91d",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://loans.local/api/loans/users",
+							"protocol": "http",
+							"host": [
+								"loans",
+								"local"
+							],
+							"path": [
+								"api",
+								"loans",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-loans",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "0e0b8ee1d66ad1afb6399af3ba58028753ad530144348618abc9af50a446a91d",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://loans.local/api/loans/users/af13b8eb-a258-4ddf-b51d-9b55a52834d7",
+							"protocol": "http",
+							"host": [
+								"loans",
+								"local"
+							],
+							"path": [
+								"api",
+								"loans",
+								"users",
+								"af13b8eb-a258-4ddf-b51d-9b55a52834d7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "0e0b8ee1d66ad1afb6399af3ba58028753ad530144348618abc9af50a446a91d",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"test 1\",\n    \"lent_amount\": 100,\n    \"payment_term\": \"fixed\",\n    \"payment_frequency\": \"weekly\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://loans.local/api/loans/users/af13b8eb-a258-4ddf-b51d-9b55a52834d7",
+							"protocol": "http",
+							"host": [
+								"loans",
+								"local"
+							],
+							"path": [
+								"api",
+								"loans",
+								"users",
+								"af13b8eb-a258-4ddf-b51d-9b55a52834d7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "loans",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://loans.local/api/users/60d2dd8e-01e4-40f2-a1a4-0d35c9d2b13d/loans",
+							"protocol": "http",
+							"host": [
+								"loans",
+								"local"
+							],
+							"path": [
+								"api",
+								"users",
+								"60d2dd8e-01e4-40f2-a1a4-0d35c9d2b13d",
+								"loans"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://loans.local/api/users/60d2dd8e-01e4-40f2-a1a4-0d35c9d2b13d/loans/52832998-1b53-470f-99ee-9c99880b9494",
+							"protocol": "http",
+							"host": [
+								"loans",
+								"local"
+							],
+							"path": [
+								"api",
+								"users",
+								"60d2dd8e-01e4-40f2-a1a4-0d35c9d2b13d",
+								"loans",
+								"52832998-1b53-470f-99ee-9c99880b9494"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pay-installment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"due_amount\": \"50.0000000000\"\n}"
+						},
+						"url": {
+							"raw": "http://loans.local/api/users/60d2dd8e-01e4-40f2-a1a4-0d35c9d2b13d/loans/52832998-1b53-470f-99ee-9c99880b9494/installments/1d78cc88-3fb1-401e-aa6d-fe068f6adae6/pay",
+							"protocol": "http",
+							"host": [
+								"loans",
+								"local"
+							],
+							"path": [
+								"api",
+								"users",
+								"60d2dd8e-01e4-40f2-a1a4-0d35c9d2b13d",
+								"loans",
+								"52832998-1b53-470f-99ee-9c99880b9494",
+								"installments",
+								"1d78cc88-3fb1-401e-aa6d-fe068f6adae6",
+								"pay"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
