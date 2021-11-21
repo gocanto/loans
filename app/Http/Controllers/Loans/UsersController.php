@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Loans;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 
+//all users
 final class UsersController
 {
     public function handle(): JsonResponse

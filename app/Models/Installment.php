@@ -11,6 +11,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property Loan $loan
+ * @property string $uuid
+ * @property string $due_date
+ * @property float $due_amount
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property Carbon $deleted_at
@@ -25,6 +28,7 @@ class Installment extends Model
         'due_date',
         'due_amount',
         'paid_at',
+        'uuid',
     ];
 
     protected $casts = [

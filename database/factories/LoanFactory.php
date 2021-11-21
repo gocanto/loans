@@ -16,8 +16,9 @@ class LoanFactory extends Factory
             'uuid' => Str::uuid()->toString(),
             'description' => $this->faker->text(),
             'lent_amount' => $this->faker->randomFloat(5, 2),
-            'payment_term' => Loan::DEFAULT_TERM,
-            'payment_frequency' => Loan::DEFAULT_FREQUENCY,
+            'payment_term' => Loan::defaultPaymentTerm(),
+            'payment_frequency' => Loan::defaultPaymentFrequency()->slug,
+            'payment_installments' => Loan::defaultPaymentFrequency()->installments,
         ];
     }
 }

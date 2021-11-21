@@ -19,13 +19,9 @@ class CreateLoansTable extends Migration
             $table->string('description');
             $table->decimal('lent_amount', 19, 10);
 
-            $table->string('payment_term')
-                ->default(Loan::DEFAULT_TERM)
-                ->comment('3, 6, 9, 12 months.');
-
-            $table->string('payment_frequency')
-                ->default(Loan::DEFAULT_FREQUENCY)
-                ->comment('weekly, monthly, other'); //we assume weekly for now
+            $table->unsignedTinyInteger('payment_installments');
+            $table->string('payment_term')->default(Loan::defaultPaymentTerm());
+            $table->string('payment_frequency')->default(Loan::defaultPaymentFrequency()->slug);
 
             $table->timestamps();
             $table->softDeletes();

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Entities\Frequency;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -11,9 +12,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Arr;
 
 /**
  * @property int $id
+ * @property int $payment_installments
  * @property string $uuid
  * @property string $description
  * @property string $payment_term
@@ -24,6 +27,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property Carbon $deleted_at
  * @property Collection|Installment[] $installments
  * @property User $user
+ * @method static create(array ...$attrs)
  */
 class Loan extends Model
 {
@@ -36,6 +40,7 @@ class Loan extends Model
         'lent_amount',
         'payment_term',
         'payment_frequency',
+        'payment_installments',
     ];
 
     protected $casts = [
@@ -43,14 +48,6 @@ class Loan extends Model
         'updated_at',
         'deleted_at',
     ];
-
-    public const DEFAULT_FREQUENCY = 'weekly';
-
-    public const TERMS = [
-        '3-months' => '3 Months',
-    ];
-
-    public const DEFAULT_TERM = '3-months';
 
     public function user(): BelongsTo
     {
@@ -68,5 +65,32 @@ class Loan extends Model
             ->whereHas('user', function (Builder $builder) use ($uuid): void {
                 $builder->where('uuid', $uuid);
             });
+    }
+
+    public static function defaultPaymentTerm(): string
+    {
+        return 'fixed';
+    }
+
+    public static function paymentTerms(): array
+    {
+        return [
+            'fixed' => 'Fixed Installments Amount',
+        ];
+    }
+
+    public static function defaultPaymentFrequency(): Frequency
+    {
+        return Arr::get(self::paymentFrequencies(), 'weekly');
+    }
+
+    /**
+     * @return array<string,Frequency>
+     */
+    public static function paymentFrequencies(): array
+    {
+        return [
+            'weekly' => Frequency::make('weekly', 'Weekly', 4),
+        ];
     }
 }

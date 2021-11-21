@@ -8,6 +8,10 @@ use App\Models\Loan;
 
 final class LoansTransformer
 {
+    public function __construct(private InstallmentsTransformer $installments)
+    {
+    }
+
     public function transform(Loan $loan): array
     {
         return [
@@ -17,6 +21,8 @@ final class LoansTransformer
             'lent_amount' => $loan->lent_amount,
             'payment_term' => $loan->payment_term,
             'payment_frequency' => $loan->payment_frequency,
+            'payment_installments' => $loan->payment_installments,
+            'installments' => $this->installments->collection($loan->installments()->get()),
             'created_at' => $loan->created_at,
             'updated_at' => $loan->updated_at,
             'deleted_at' => $loan->deleted_at,
