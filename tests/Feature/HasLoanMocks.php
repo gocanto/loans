@@ -17,7 +17,14 @@ trait HasLoanMocks
         return $user = User::factory()->create($attrs);
     }
 
-    protected function getLoan(): Collection | Model | Loan
+    protected function createLoan(User $user, array $attrs = []): Collection | Model | Loan
+    {
+        return Loan::factory()->create([
+            'user_id' => $user->id,
+        ]);
+    }
+
+    protected function getLoan(array $attrs = []): Collection | Model | Loan
     {
         /**
          * @var User $user
@@ -26,15 +33,13 @@ trait HasLoanMocks
 
         $user = User::factory()->create();
 
-        return Loan::factory()->create([
-            'user_id' => $user->id,
-        ]);
+        return $this->createLoan($user, $attrs);
     }
 
-    protected function createInstallment(Loan $loan): Collection | Model | Installment
+    protected function createInstallment(Loan $loan, array $attrs = []): Collection | Model | Installment
     {
-        return Installment::factory([
+        return Installment::factory(\array_merge([
             'loan_id' => $loan->id,
-        ])->create();
+        ], $attrs))->create();
     }
 }
