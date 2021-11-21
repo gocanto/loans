@@ -113,6 +113,9 @@ class StoreUserLoansTest extends TestCase
         self::assertSame('weekly', $loan->payment_frequency);
         self::assertSame(4, $loan->payment_installments);
         self::assertNull($loan->deleted_at);
+
+        self::assertCount($loan->payment_installments, $loan->installments);
+        self::assertEquals($loan->installments->first()->due_amount, $loan->lent_amount / $loan->payment_installments);
     }
 
     public function getResponse(string $userUuid, array $data = []): TestResponse
