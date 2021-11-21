@@ -13,6 +13,7 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     private User $user;
+    private User $user2;
     private CarbonImmutable $now;
 
     public function __construct()
@@ -23,6 +24,12 @@ class DatabaseSeeder extends Seeder
             'name' => 'Gus',
             'email' => 'gus@loans.local',
             'uuid' => 'af13b8eb-a258-4ddf-b51d-9b55a52834d7',
+        ]);
+
+        $this->user2 = User::factory()->create([
+            'name' => 'Li',
+            'email' => 'li@loans.local',
+            'uuid' => '60d2dd8e-01e4-40f2-a1a4-0d35c9d2b13d',
         ]);
     }
 
@@ -39,6 +46,17 @@ class DatabaseSeeder extends Seeder
         $loan = Loan::factory()->create(\array_merge([
             'uuid' => $uuid,
             'user_id' => $this->user->id
+        ], $attrs));
+
+        $this->createInstallments($loan);
+    }
+
+    private function createLoan2(string $uuid, array $attrs) : void
+    {
+        /** @var Loan $loan */
+        $loan = Loan::factory()->create(\array_merge([
+            'uuid' => $uuid,
+            'user_id' => $this->user2->id
         ], $attrs));
 
         $this->createInstallments($loan);
