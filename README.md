@@ -15,6 +15,8 @@ you have done this, you would be able to type the following from within your wor
 ```bash
 git@github.com:gocanto/loans.git
 
+cd loans
+
 make install
 ```
 
@@ -66,8 +68,9 @@ While the users resources are endpoints meant to be accessed by all subscribed u
 | GET|HEAD | api/loans/users/{uuid}                                                   | App\Http\Controllers\Loans\UserLoansController@handle      |
 | POST     | api/loans/users/{uuid}                                                   | App\Http\Controllers\Loans\StoreUserLoansController@handle |
 +----------+--------------------------------------------------------------------------+------------------------------------------------------------+
-
 ```
+
+> see definitions [here](https://github.com/gocanto/loans/blob/main/routes/api.php#L10)
 
 ## Users Endpoint
 
@@ -81,7 +84,27 @@ While the users resources are endpoints meant to be accessed by all subscribed u
 +----------+--------------------------------------------------------------------------+------------------------------------------------------------+
 ```
 
+> see definitions [here](https://github.com/gocanto/loans/blob/main/routes/api.php#L20)
+
 ## Postman collections
 
 In case you would like to see  how the available endpoints work right out the box, you can [click here](https://github.com/gocanto/loans/blob/main/resources/postman/loans-playground.postman_collection.json) 
 in order for you to download the available collections shipped with this application.
+
+For more comprehensive examples, you can visit our [test site](https://github.com/gocanto/loans/tree/main/tests). 
+
+## Contributing
+
+Please feel free to fork this package and contribute by submitting a pull request to enhance its functionality.
+
+## License
+
+The MIT License (MIT). Please see [License File](https://github.com/gocanto/loans/blob/main/LICENSE) for more information.
+
+## How can I thank you?
+
+Why not star this GitHub repository and share its link on your social network?
+
+> Don't forget to [follow me on twitter](https://twitter.com/gocanto)!
+
+
