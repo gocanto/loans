@@ -1,7 +1,7 @@
 # Todo
 
 - [x] Check that the Loans' endpoint are working as expected.
-- [ ] Add a basic token protection for the loans endpoints.
+- [x] Add a basic token protection for the loans endpoints.
 - [x] Track the installments once loans are created.
 - [ ] Complete the users endpoints.
 - [ ] Add some tests.
