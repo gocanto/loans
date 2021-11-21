@@ -17,7 +17,7 @@ final class LoansController
 
     public function handle(Request $request): JsonResponse
     {
-        $loans = Loan::byUserUuidQuery($request->route('uuid'))
+        $loans = Loan::byUserUuidQuery($request->route('userUuid'))
             ->paginate()
             ->through(function (Loan $loan):array {
                 return $this->transformer->transform($loan);

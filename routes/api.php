@@ -20,10 +20,9 @@ Route::group([
 Route::group([
     'prefix' => 'users',
 ], static function (): void {
-    Route::get('{uuid}/loans', [Users\LoansController::class, 'handle'])->name('user.loans');
-    Route::get('{userUuid}/loan/{loanUuid}', [Users\LoanController::class, 'handle'])->name('user.loan');
-    Route::post('{uuid}/installments', [Users\InstallmentsController::class, 'handle'])->name('user.installments');
-    Route::post('{userUuid}/installments/{installmentUuid}/paid', [Users\PayInstallmentController::class, 'handle'])->name('user.pay.installment');
+    Route::get('{userUuid}/loans', [Users\LoansController::class, 'handle'])->name('user.loans');
+    Route::get('{userUuid}/loans/{loanUuid}', [Users\ShowLoanController::class, 'handle'])->name('user.loan');
+    Route::post('{userUuid}/loans/{loanUuid}/installments/{installmentUuid}/paid', [Users\PayInstallmentController::class, 'handle'])->name('user.pay.installment');
 });
 
 

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -50,5 +51,17 @@ class Installment extends Model
     public function isPending(): bool
     {
         return !$this->isPaid();
+    }
+
+    public static function byUserAndLoanQuery(string $userUuid, string $loanUuid): Builder
+    {
+        return self::query()
+            ->whereHas('loan', function (Builder $builder) use ($userUuid, $loanUuid) {
+                $builder
+                    ->where('uuid', $loanUuid)
+                    ->whereHas('user', function (Builder $builder) use ($userUuid): void {
+                        $builder->where('uuid', $userUuid);
+                    });
+            });
     }
 }
